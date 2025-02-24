@@ -81,11 +81,6 @@
     </property>
     <column>
      <property name="text">
-      <string>New Column</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
       <string>ID</string>
      </property>
     </column>
@@ -97,6 +92,11 @@
     <column>
      <property name="text">
       <string>Cor</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Velocidade max</string>
      </property>
     </column>
     <column>
