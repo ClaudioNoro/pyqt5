@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="regist">
+    <file>icons/color-palette.png</file>
+    <file>icons/license-plate.png</file>
+    <file>icons/speedometer.png</file>
+  </qresource>
+</RCC>
