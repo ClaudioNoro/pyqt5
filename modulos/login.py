@@ -1,22 +1,8 @@
-#from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
-#from PyQt5.QtCore import Qt
-#from PyQt5.QtCore import pyqtSlot
-#from PyQt5 import QtCore, QtGui, QtWidgets
-#from PyQt5.QtWidgets import *
-#from PyQt5.QtGui import QIcon, QPixmap
-#from PyQt5.QtPrintSupport import *
-#import os, sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QDialog, QMainWindow, QMessageBox
-from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtWidgets import  QDialog, QMessageBox
 from PyQt5.QtPrintSupport import * 
-import os, sys
-
-from template.GUI_Loin import Ui_Login
-from template.GUI_Tela import Ui_MainWindow
-from template.GUI_RegistLigeiro import Ui_RegistLigeiro
-
+from PyQt5.QtWidgets import QDialog
+from modulos.principal import telaprincipal
+from PyQt5 import uic
 
 class Veiculo:
     def __init__(self, id_veiculo, velocidade_maxima, cor, matricula):
@@ -59,48 +45,26 @@ class Ligeiros(Veiculo):
         matricula = input("Digite a matricula do veiculo: ")
         print("criado com sucesso!!")
         return cls(id_veiculo, velocidade_maxima, cor, matricula)
-class telaregistoli(QDialog):
-    def __init__(self, *args, **argvs):
-        super().__init__(*args, **argvs)
-        self.ui= Ui_RegistLigeiro()
-        self.ui.setupUi(self)
 
-class telaprincipal(QMainWindow):
-    def __init__(self, *args, **argvs):
-        super(telaprincipal, self).__init__(*args, **argvs)
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-        self.ui.actionAdd.triggered.connect(self.addLigeiro)
 
-    def addLigeiro(self):
-        addLigeiro= telaregistoli() 
-        addLigeiro.exec_()
+
 
 
 class login(QDialog):
+    
     def __init__(self, *args, **argvs):
         super(login, self).__init__(*args, **argvs)
-        self.ui = Ui_Login()
-        self.ui.setupUi(self)
+        uic.loadUi('gui/GUI_Login.ui', self)
         self.ui.pushButton.clicked.connect(self.login)   
 
     def login(self):
-        admin= "admin"
-        senha="admin"
-        user=""
-        passwd=""
-        user=self.ui.lineEdit.text()
-        passwd=self.ui.lineEdit_2.text()
-        if user == admin and senha==passwd:
-            QMessageBox.information(QMessageBox(),"Login realizado com sucesso","Entrou como admin")
-            self.window=telaprincipal()
+        admin = "admin"
+        senha = "admin"
+        user = self.ui.lineEdit.text()
+        passwd = self.ui.lineEdit_2.text()
+        if user == admin and senha == passwd:
+            QMessageBox.information(self, "Login realizado com sucesso", "Entrou como admin")
+            self.window = telaprincipal()
             self.window.show()
         else:
-            QMessageBox.information(QMessageBox(),"falha no Login","Credenciais invalidas")
-
-
-app = QApplication(sys.argv)
-if QDialog.Accepted:  
-    window = login()
-    window.show()
-sys.exit(app.exec_())
+            QMessageBox.information(self, "Falha no Login", "Credenciais inválidas")
