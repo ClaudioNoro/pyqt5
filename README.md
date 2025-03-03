@@ -1,2 +1,2 @@
-# pyqt5
-dor de cabeça
+# sistema administracao de garagem pyqt5
+v1.0 BETA
