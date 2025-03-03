@@ -70,7 +70,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="loginButton">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -83,7 +83,7 @@
     <string>login</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -109,7 +109,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#1a9cff;&quot;&gt;forgot your password?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="userLnEdt">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -122,7 +122,7 @@
     <string>example@example.com</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="passLnEdt">
    <property name="geometry">
     <rect>
      <x>30</x>

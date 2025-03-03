@@ -1,19 +1,20 @@
-from PyQt5.QtWidgets import QMainWindow, QDialog, QTableWidgetItem
-from PyQt5 import uic
-from modulos.addligeiros import telaregistoli
-
-class telaprincipal(QMainWindow):
+from . import (QMainWindow, QDialog, QTableWidgetItem, uic, QAction)
+from . import cast
+from modulos.addligeiros import TelaRegistoli
+class TelaPrincipal(QMainWindow):
     def __init__(self, *args, **argvs):
-        super(telaprincipal, self).__init__(*args, **argvs)
+        super(TelaPrincipal, self).__init__(*args, **argvs)
         uic.loadUi('gui/GUI_Tela.ui', self)
+        self.actionAdd= cast(QAction, self.findChild(QAction, "actionAdd"))
         self.actionAdd.triggered.connect(self.addLigeiro)
         self.ligeiros_list = []
+        self.tableWidget = cast(QMainWindow, self.findChild(QMainWindow, "tableWidget"))
         print("Main window initialized")
 
     def addLigeiro(self):
         print("addLigeiro called")
-        addLigeiroDialog = telaregistoli(self)
-        if addLigeiroDialog.exec_() == QDialog.Accepted:
+        addLigeiroDialog = TelaRegistoli(self)
+        if addLigeiroDialog.exec_() == QDialog.accepted:
             print("Dialog accepted")
             ligeiro = addLigeiroDialog.getLigeiro()
             self.ligeiros_list.append(ligeiro)
@@ -27,6 +28,7 @@ class telaprincipal(QMainWindow):
             self.tableWidget.setItem(row, 1, QTableWidgetItem(ligeiro.matricula))
             self.tableWidget.setItem(row, 2, QTableWidgetItem(ligeiro.cor))
             self.tableWidget.setItem(row, 3, QTableWidgetItem(str(ligeiro.velocidade_maxima)))
+            
     #def loadUi(uifile, baseinstance=None, package='', resource_suffix='_rc'):
     #    """loadUi(uifile, baseinstance=None, package='') -> widget
     #   
