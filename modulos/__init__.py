@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import (QDialog, QPushButton, QMessageBox, QLineEdit, QMainWindow, QTableWidgetItem, QAction)
 from PyQt5 import uic
+from modulos.Veiculos import Veiculo
 # removidos
 # from modulos.principal import TelaPrincipal
 # from modulos.addligeiros import TelaRegistoli

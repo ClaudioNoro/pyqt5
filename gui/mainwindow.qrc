@@ -1,11 +1,9 @@
 <RCC>
   <qresource prefix="mainwindow">
-    <file>icons/add.png</file>
-    <file>icons/bin.png</file>
-    <file>icons/changes.png</file>
-    <file>icons/key.png</file>
-    <file>icons/reload.png</file>
-    <file>icons/search.png</file>
-    <file>icons/user.png</file>
+    <file>../icons/add.png</file>
+    <file>../icons/bin.png</file>
+    <file>../icons/changes.png</file>
+    <file>../icons/reload.png</file>
+    <file>../icons/search.png</file>
   </qresource>
 </RCC>

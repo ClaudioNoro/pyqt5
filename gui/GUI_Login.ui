@@ -61,7 +61,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/img/icons/key.png);</string>
+    <string notr="true">image: url(:/img/icons/key.png);
+</string>
    </property>
    <property name="text">
     <string>Password</string>

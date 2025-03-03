@@ -8,7 +8,7 @@ class TelaPrincipal(QMainWindow):
         self.actionAdd= cast(QAction, self.findChild(QAction, "actionAdd"))
         self.actionAdd.triggered.connect(self.addLigeiro)
         self.ligeiros_list = []
-        self.tableWidget = cast(QMainWindow, self.findChild(QMainWindow, "tableWidget"))
+        self.tableLig = cast(QMainWindow, self.findChild(QMainWindow, "tableLigeiros"))
         print("Main window initialized")
 
     def addLigeiro(self):
@@ -18,16 +18,16 @@ class TelaPrincipal(QMainWindow):
             print("Dialog accepted")
             ligeiro = addLigeiroDialog.getLigeiro()
             self.ligeiros_list.append(ligeiro)
-            self.updateTable()
+            self.updateTableLig()
 
-    def updateTable(self):
+    def updateTableLig(self):
         print("updateTable called")
-        self.tableWidget.setRowCount(len(self.ligeiros_list))
+        self.tableLig.setRowCount(len(self.ligeiros_list))
         for row, ligeiro in enumerate(self.ligeiros_list):
-            self.tableWidget.setItem(row, 0, QTableWidgetItem(str(ligeiro.id_veiculo)))
-            self.tableWidget.setItem(row, 1, QTableWidgetItem(ligeiro.matricula))
-            self.tableWidget.setItem(row, 2, QTableWidgetItem(ligeiro.cor))
-            self.tableWidget.setItem(row, 3, QTableWidgetItem(str(ligeiro.velocidade_maxima)))
+            self.tableLig.setItem(row, 0, QTableWidgetItem(str(ligeiro.id_veiculo)))
+            self.tableLig.setItem(row, 1, QTableWidgetItem(ligeiro.matricula))
+            self.tableLig.setItem(row, 2, QTableWidgetItem(ligeiro.cor))
+            self.tableLig.setItem(row, 3, QTableWidgetItem(str(ligeiro.velocidade_maxima)))
             
     #def loadUi(uifile, baseinstance=None, package='', resource_suffix='_rc'):
     #    """loadUi(uifile, baseinstance=None, package='') -> widget

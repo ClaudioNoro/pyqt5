@@ -194,6 +194,9 @@ border-color: rgb(0, 0, 0);</string>
    <addaction name="actionRefresh"/>
   </widget>
   <action name="actionFind">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="mainwindow.qrc">
      <normaloff>:/mainwindow/icons/search.png</normaloff>:/mainwindow/icons/search.png</iconset>
