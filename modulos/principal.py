@@ -1,24 +1,60 @@
-from . import (QMainWindow, QDialog, QTableWidgetItem, uic, QAction)
+from . import (QMainWindow, QDialog, QTableWidgetItem, uic, QAction, QTableWidget)
 from . import cast
 from modulos.addligeiros import TelaRegistoli
+from modulos.choicewindow import ChoiceWindow
+from modulos.addpesados import TelaRegistope
+
 class TelaPrincipal(QMainWindow):
     def __init__(self, *args, **argvs):
         super(TelaPrincipal, self).__init__(*args, **argvs)
         uic.loadUi('gui/GUI_Tela.ui', self)
+        
         self.actionAdd= cast(QAction, self.findChild(QAction, "actionAdd"))
-        self.actionAdd.triggered.connect(self.addLigeiro)
+        self.actionAdd.triggered.connect(self.choicewindow)
+        
         self.ligeiros_list = []
-        self.tableLig = cast(QMainWindow, self.findChild(QMainWindow, "tableLigeiros"))
+        self.pesados_list = []
+
+        self.tableLig = cast(QTableWidget, self.findChild(QTableWidget, "tableLigeiros"))
+        self.tablePes= cast(QTableWidget, self.findChild(QTableWidget, "tablePesados"))
+           
         print("Main window initialized")
+    
+    def choicewindow(self):
+        choiceDialog = ChoiceWindow(self)
+        if choiceDialog.exec_() == QDialog.Accepted:
+            if choiceDialog.choice == 'Ligeiro':
+                self.addLigeiro()
+            elif choiceDialog.choice == 'Pesado':
+                self.addPesado()
 
     def addLigeiro(self):
         print("addLigeiro called")
         addLigeiroDialog = TelaRegistoli(self)
-        if addLigeiroDialog.exec_() == QDialog.accepted:
+        if addLigeiroDialog.exec_() == QDialog.Accepted: # Accepted != accepted (funcoes diferente)
             print("Dialog accepted")
             ligeiro = addLigeiroDialog.getLigeiro()
             self.ligeiros_list.append(ligeiro)
             self.updateTableLig()
+
+    def addPesado(self):
+        print("addPesado called")
+        addPesadoDialog = TelaRegistope(self)
+        if addPesadoDialog.exec_() == QDialog.Accepted:
+            print("Dialog accepted")
+            pesado = addPesadoDialog.getPesado()
+            self.pesados_list.append(pesado)
+            self.updateTablePes()
+
+    def updateTablePes(self):
+        print("updateTable called")
+        self.tablePes.setRowCount(len(self.pesados_list))
+        for row, pesado in enumerate(self.pesados_list):
+            self.tablePes.setItem(row, 0, QTableWidgetItem(str(pesado.id_veiculo)))
+            self.tablePes.setItem(row, 1, QTableWidgetItem(pesado.matricula))
+            self.tablePes.setItem(row, 2, QTableWidgetItem(pesado.cor))
+            self.tablePes.setItem(row, 3, QTableWidgetItem(str(pesado.velocidade_maxima)))
+            self.tablePes.setItem(row, 4, QTableWidgetItem(str(pesado.carga)))
 
     def updateTableLig(self):
         print("updateTable called")

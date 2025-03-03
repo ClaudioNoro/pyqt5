@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import (QDialog, QPushButton, QMessageBox, QLineEdit, QMainWindow, QTableWidgetItem, QAction)
+from PyQt5.QtWidgets import (QDialog, QPushButton, QMessageBox, QLineEdit, QMainWindow, QTableWidgetItem, QAction, QTableWidget)
 from PyQt5 import uic
 from modulos.Veiculos import Veiculo
 # removidos

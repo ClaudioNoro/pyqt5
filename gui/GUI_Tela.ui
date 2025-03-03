@@ -40,7 +40,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Veiculos Pesados&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tableLigeiros">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -70,7 +70,7 @@
      </property>
     </column>
    </widget>
-   <widget class="QTableWidget" name="tableWidget_2">
+   <widget class="QTableWidget" name="tablePesados">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -143,8 +143,8 @@ border-color: rgb(0, 0, 0);</string>
    <zorder>label_4</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
-   <zorder>tableWidget</zorder>
-   <zorder>tableWidget_2</zorder>
+   <zorder>tableLigeiros</zorder>
+   <zorder>tablePesados</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -209,6 +209,9 @@ border-color: rgb(0, 0, 0);</string>
    </property>
   </action>
   <action name="actionAdd">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="mainwindow.qrc">
      <normaloff>:/mainwindow/icons/add.png</normaloff>:/mainwindow/icons/add.png</iconset>

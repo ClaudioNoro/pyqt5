@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>../icons/add.png</file>
+    <file>../icons/bin.png</file>
+    <file>../icons/changes.png</file>
+    <file>../icons/color-palette.png</file>
+    <file>../icons/key.png</file>
+    <file>../icons/license-plate.png</file>
+    <file>../icons/reload.png</file>
+    <file>../icons/search.png</file>
+    <file>../icons/speedometer.png</file>
+    <file>../icons/user.png</file>
+    <file>../icons/weight.png</file>
+  </qresource>
+</RCC>

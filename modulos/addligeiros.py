@@ -54,9 +54,6 @@ class TelaRegistoli(QDialog):
         
         print("Dialog initialized")
 
-        self.button1 = QPushButton("Button 1", self)
-        self.button1.clicked.connect(self.accept)
-
     def getLigeiro(self):
         print("getLigeiro called")
         velocidade_maxima = float(self.inputvelocidade.text())
